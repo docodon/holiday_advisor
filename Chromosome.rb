@@ -18,6 +18,16 @@ class Chromosome
     @fitness_score
   end
 
+  def fitness_function_1
+    @fitness_score = 100
+    pv = -1
+    @string.split('').each_with_index do |i,index|
+      @fitness_score-= 2*(index - pv)  if index - pv >= 5
+      pv = index if i!='0'
+    end
+    @fitness_score = [0 , @fitness_score].max
+  end
+
   private
 
   def working_days
@@ -38,5 +48,4 @@ class Chromosome
        end
     end
   end
-
 end
