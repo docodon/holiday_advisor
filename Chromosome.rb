@@ -6,11 +6,16 @@ class Chromosome
   def initialize(leaves)
     @string = Calendar.make_chromosome  # 0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
     @v_leaves = leaves
+    @fitness_score = nil
     fill_variable_leaves( working_days )
   end
 
   def get
     @string
+  end
+
+  def fscore
+    @fitness_score
   end
 
   private
