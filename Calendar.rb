@@ -7,7 +7,6 @@ module Calendar
 
   URL_TEMP = 'https://www.timeanddate.com/holidays/india/'
 
-  CHROMOSOME = ''
   DD = Date.today
 
   def Calendar.valid_holiday(d)
@@ -35,15 +34,16 @@ module Calendar
     return '0'
   end
 
-  def Calendar.make_chromosomes
+  def Calendar.make_chromosome
+    chromosome = ''
     holidays = Calendar::get_holidays
 
     (DD..DD+365).each do |i|
-      CHROMOSOME<<mapping(i,holidays)
+      chromosome<<mapping(i,holidays)
     end
 
-    CHROMOSOME
-
+    chromosome
+  
   end
 
 end
