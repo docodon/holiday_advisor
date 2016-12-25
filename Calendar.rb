@@ -34,8 +34,21 @@ module Calendar
 
   end
 
+  def mapping(date,holidays)
+    return 1 if date.wday==0 || date.wday==6    #sat/sun fixed holidays
+    return 2 if holidays.include? date
+    return 0
+  end
+
   def make_chromosomes
-    
+    holidays = get_holidays
+
+    (DD..DD+366).each do |i|
+      CHROMOSOME<<mapping(i,holidays)
+    end
+
+    CHROMOSOME
+
   end
 
 end
