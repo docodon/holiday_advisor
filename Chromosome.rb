@@ -25,7 +25,6 @@ class Chromosome
       @fitness_score -= (5-(j-pv) )  if j-pv>3 && ch=='0'
       pv = j if ch!='0'
     end
-    return @fitness_score
     @fitness_score = [0 , @fitness_score].max
   end
 
