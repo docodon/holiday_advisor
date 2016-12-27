@@ -10,4 +10,3 @@ class Generation
     @generation
   end
 
-end

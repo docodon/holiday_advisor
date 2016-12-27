@@ -1,8 +1,6 @@
 # holiday_advisor
 
 
-making advisor - atleast one project I can be proud of :( :(
-
 1) fetch sunday/sat/govt_holidays              # module problem
 2) user-input -> ar[fixed_holidays]            # most prob in date/month  [module problem]
 3) user-input -> unpaid_leaves paid_leaves     # variables                 

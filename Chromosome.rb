@@ -20,11 +20,12 @@ class Chromosome
 
   def fitness_function_1
     @fitness_score = 100
-    pv = -1
-    @string.split('').each_with_index do |i,index|
-      @fitness_score-= 2*(index - pv)  if index - pv >= 5
-      pv = index if i!='0'
+    pv=-1
+    @string.split('').each_with_index do |ch,j|
+      @fitness_score -= (5-(j-pv) )  if j-pv>3 && ch=='0'
+      pv = j if ch!='0'
     end
+    return @fitness_score
     @fitness_score = [0 , @fitness_score].max
   end
 
@@ -32,8 +33,8 @@ class Chromosome
 
   def working_days
     ar = []
-    @string.split('').each_with_index do |i,index|    
-      ar << [ index,0 ] if i=='0' 
+    @string.split('').each_with_index do |i,j|    
+      ar << [ j,0 ] if i=='0' 
     end
     ar
   end

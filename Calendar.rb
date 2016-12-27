@@ -1,9 +1,9 @@
 module Calendar
-  require 'Nokogiri'
+  require 'nokogiri'
   require 'open-uri'
   require 'set'
-  require 'Date'
-  require 'Pry'
+  require 'date'
+  require 'pry'
 
   URL_TEMP = 'https://www.timeanddate.com/holidays/india/'
 
