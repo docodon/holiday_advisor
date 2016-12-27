@@ -3,6 +3,9 @@ require './Calendar.rb'
 class Chromosome
   include Calendar
 
+  @@cross_over_rate = 0.6
+  @@mutation_rate = 0.05
+
   def initialize(leaves)
     @string = Calendar.make_chromosome  # 0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
     @v_leaves = leaves
@@ -28,6 +31,30 @@ class Chromosome
     @fitness_score = [0 , @fitness_score].max
   end
 
+  def self.cross_over a,b 
+    ar1 , ar2 = [],[]
+    rep_a , rep_b = a.get , b.get 
+    
+    (0...rep_a.size).each do |i|
+      ar1 << i if rep_a[i]=='0' && rep_b[i]=='2'
+      ar2 << i if rep_a[i]=='2' && rep_b[i]=='0'      
+    end
+    
+    raise "Chromosomes having diffrent number of leaves" if ar1.size != ar2.size
+
+    (0...ar1.size).each do |i|
+      if rand < @@cross_over_rate
+        a.toggle_bit(ar1[i])
+        b.toggle_bit(ar1[i])
+      end
+    end
+
+  end
+
+  def toggle_bit i
+    @string[i] = @string[i]=='0' ? '2' : '0' 
+  end
+
   private
 
   def working_days
@@ -48,4 +75,6 @@ class Chromosome
        end
     end
   end
+
 end
+

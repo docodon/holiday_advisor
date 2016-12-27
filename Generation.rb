@@ -19,10 +19,18 @@ class Generation
   	end 
   end
 
-  def individual #gen a random num and return chromosome at first index  where roulette_cumulative_sum > randdom
+  def get_individual #gen a random num and return chromosome at first index  where roulette_cumulative_sum > randdom
   	random = rand(@total)+1
   	(0...@generation.size).each do |i|
   		return @generation[i] if @roulette_wheel[i][0]>=random	
+  	end
+  end
+
+  def new_generation
+  	ar = []  #no individual over here
+  	until ar.size == @generation.size
+  		c = get_individual   #got two individuals
+  		d = get_individual	  
   	end
   end
 
