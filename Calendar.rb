@@ -8,14 +8,17 @@ module Calendar
   URL_TEMP = 'https://www.timeanddate.com/holidays/india/'
 
   DD = Date.today
-  INTERVAL = 90
+  INTERVAL = 365
 
   def Calendar.valid_holiday(d)
     d['class']!='head' && ( d.css('td').last.text=='Gazetted Holiday') #'Restricted Holiday'
   end
 
-
   def Calendar.get_holidays
+    holidays ||= Calendar.generate_holidays
+  end
+
+  def Calendar.generate_holidays
     yy =  DD.year
     holidays = Set.new
     urls = [  URL_TEMP+yy.to_s , URL_TEMP+(yy+1).to_s  ]
