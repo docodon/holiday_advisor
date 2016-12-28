@@ -8,6 +8,7 @@ module Calendar
   URL_TEMP = 'https://www.timeanddate.com/holidays/india/'
 
   DD = Date.today
+  INTERVAL = 90
 
   def Calendar.valid_holiday(d)
     d['class']!='head' && ( d.css('td').last.text=='Gazetted Holiday') #'Restricted Holiday'
@@ -38,7 +39,7 @@ module Calendar
     chromosome = ''
     holidays = Calendar::get_holidays
 
-    (DD..DD+365).each do |i|
+    (DD..DD+INTERVAL).each do |i|
       chromosome<<mapping(i,holidays)
     end
 

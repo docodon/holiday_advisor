@@ -3,7 +3,10 @@ require './Chromosome.rb'
 class Generation
   
   def initialize pop_size,leaves
-    @generation = [Chromosome.new(leaves)]*pop_size
+    @generation = []
+  	pop_size.times do 
+  		@generation<< Chromosome.new(leaves)
+  	end
   	@roulette_wheel = []
   end
 
@@ -27,11 +30,21 @@ class Generation
   end
 
   def new_generation
-  	ar = []  #no individual over here
+  	ar = []  
   	until ar.size == @generation.size
-  		c = get_individual   #got two individuals
-  		d = get_individual	  
+  		c, d = get_individual, get_individual	
+  		offspring1, offspring2 = Chromosome.cross_over c,d
+  		ar << offspring1
+  		ar << offspring2 unless ar.size == @generation.size
   	end
+  	initialize_new_generation ar
   end
+
+  def initialize_new_generation ar
+  	@generation = ar
+  	@total = 0
+  	@roulette_wheel = []
+  end
+
 
 end

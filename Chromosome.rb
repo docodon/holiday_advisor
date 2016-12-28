@@ -31,28 +31,32 @@ class Chromosome
     @fitness_score = [0 , @fitness_score].max
   end
 
-  def self.cross_over a,b 
+  def self.cross_over a,b
+    c = Marshal::load(Marshal.dump(a))
+    d = Marshal::load(Marshal.dump(b))
     ar1 , ar2 = [],[]
-    rep_a , rep_b = a.get , b.get 
+    rep_c , rep_d = c.get , d.get   #representation of a and d as internal string
     
-    (0...rep_a.size).each do |i|
-      ar1 << i if rep_a[i]=='0' && rep_b[i]=='2'
-      ar2 << i if rep_a[i]=='2' && rep_b[i]=='0'      
+    (0...rep_c.size).each do |i|
+      ar1 << i if rep_c[i]=='0' && rep_d[i]=='2'
+      ar2 << i if rep_c[i]=='2' && rep_d[i]=='0'      
     end
     
     raise "Chromosomes having diffrent number of leaves" if ar1.size != ar2.size
 
     (0...ar1.size).each do |i|
       if rand < @@cross_over_rate
-        a.toggle_bit(ar1[i])
-        b.toggle_bit(ar1[i])
+        c.toggle_bit(ar1[i])
+        c.toggle_bit(ar2[i])
+        d.toggle_bit(ar1[i])
+        d.toggle_bit(ar2[i])
       end
     end
-
+    [c,d]  
   end
 
   def toggle_bit i
-    @string[i] = @string[i]=='0' ? '2' : '0' 
+    @string[i] = ( @string[i]=='0' ) ? '2' : '0' 
   end
 
   private
