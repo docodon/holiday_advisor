@@ -1,13 +1,12 @@
 require './Calendar.rb'
  
 class Chromosome
-  include Calendar
-
+ 
   @@cross_over_rate = 0.6
-  @@mutation_rate = 0.05
+  @@mutation_rate = 0.01
 
   def initialize(leaves)
-    @string = Calendar.make_chromosome  # 0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
+    @string = Calendar::CHROMSOME_TEMPLATE  # 0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
     @v_leaves = leaves
     @fitness_score = nil
     fill_variable_leaves( working_days )

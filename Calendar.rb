@@ -14,10 +14,6 @@ module Calendar
     d['class']!='head' && ( d.css('td').last.text=='Gazetted Holiday') #'Restricted Holiday'
   end
 
-  def Calendar.get_holidays
-    holidays ||= Calendar.generate_holidays
-  end
-
   def Calendar.generate_holidays
     yy =  DD.year
     holidays = Set.new
@@ -30,8 +26,12 @@ module Calendar
       end
     end        
     
+    p "Fetched gazzetted holiday list from #{URL_TEMP+yy.to_s}"
+    
     holidays
   end
+
+  HOLIDAYS = Calendar.generate_holidays
 
   def Calendar.mapping(date,holidays)
     return '1' if date.wday==0 || date.wday==6  || holidays.include?(date)    #sat/sun/gazetted holidays
@@ -40,15 +40,16 @@ module Calendar
 
   def Calendar.make_chromosome
     chromosome = ''
-    holidays = Calendar::get_holidays
+    holidays = Calendar::HOLIDAYS
 
     (DD..DD+INTERVAL).each do |i|
       chromosome<<mapping(i,holidays)
     end
-
+    p "Chromosome template made !" 
     chromosome
-  
   end
+
+  CHROMSOME_TEMPLATE = Calendar.make_chromosome
 
 end
 
