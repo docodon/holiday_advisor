@@ -12,9 +12,8 @@ Genetic algorithms work on theory of evolution .
 ```
   Few links may be helpful to understand - 
 
-  ** http://www.ai-junkie.com/ga/intro/gat1.html **
-
-  ** https://en.wikipedia.org/wiki/Genetic_algorithm - wikipedia is always to rescue **
+  [Ai-junkie](http://www.ai-junkie.com/ga/intro/gat1.html)
+  [Wikipedia always to rescue](https://en.wikipedia.org/wiki/Genetic_algorith)
 ```
 
 You can go through the code to get the grasp of it , I have tried to make it really simple and readable.
@@ -40,7 +39,7 @@ You can go through the code to get the grasp of it , I have tried to make it rea
 
 1. Instead of merely a github repo I am planning to host it online using rails and angular frameworks.
 
-2. Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource ['https://www.timeanddate.com/holidays/india/2017']  .
+2. Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource [https://www.timeanddate.com/holidays/india/2017]  .
 Will allow user to alter the initial holidays and also enable him to add leaves which he has planned already .
 
 3. Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .
