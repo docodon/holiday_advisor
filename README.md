@@ -44,4 +44,17 @@ Will allow user to alter the initial holidays and also enable him to add leaves 
 
 3. Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .
 
+4. Improve algorithm complexity : 
+    
+    ```
+    current = O( fetching_leaves + pop_size * (366 * 5 + log(pop_size)  ) ) 
 
+    details : 
+    
+    	generate_random_pop = O( fetching_leaves + pop_size * 366 )
+
+    	rating_generation =  O( 366 * pop_size )
+
+    	generating_new_generation = O( log(pop_size) + 366*3 )
+
+    ```
