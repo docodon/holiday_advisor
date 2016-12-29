@@ -1,7 +1,7 @@
 require './Generation.rb'
 
 NUM_GEN = 400
-NUM_LEAVES = 50  #12 are paid and rest may vary 
+NUM_LEAVES = 50  #assumption 12 are official and rest may vary acc. to person
 NUM_CHROMOSOMES = 500
 
 g = Generation.new(NUM_CHROMOSOMES,NUM_LEAVES)
