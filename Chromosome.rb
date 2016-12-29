@@ -58,6 +58,14 @@ class Chromosome
     @string[i] = ( @string[i]=='0' ) ? '2' : '0' 
   end
 
+  def calendar_rep
+    rep = []
+    @string.split('').each_with_index do |i,j|
+      rep << [ (Calendar::DD + j).to_s , rev_mapping(i) ]
+    end
+    rep
+  end
+  
   private
 
   def working_days
@@ -79,6 +87,12 @@ class Chromosome
       cnt+=1 
     end
     p 'Chromosome ready !'
+  end
+
+  def rev_mapping i
+    return "workday" if i=='0'
+    return "holiday" if i=='1'
+    return "probable_holiday" if i=='2'
   end
 
 end
