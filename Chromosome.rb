@@ -24,7 +24,7 @@ class Chromosome
     @fitness_score = 100
     pv=-1
     @string.split('').each_with_index do |ch,j|
-      @fitness_score -= (5-(j-pv) )  if j-pv>3 && ch=='0'
+      @fitness_score -= ((j-pv)-3 )  if j-pv>3 && ch=='0'
       pv = j if ch!='0'
     end
     @fitness_score = [0 , @fitness_score].max
@@ -34,7 +34,7 @@ class Chromosome
     c = Marshal::load(Marshal.dump(a))
     d = Marshal::load(Marshal.dump(b))
     ar1 , ar2 = [],[]
-    rep_c , rep_d = c.get , d.get   #representation of a and d as internal string
+    rep_c , rep_d = c.get , d.get   #representation of c and d as internal string
     
     (0...rep_c.size).each do |i|
       ar1 << i if rep_c[i]=='0' && rep_d[i]=='2'
@@ -76,7 +76,7 @@ class Chromosome
     ar
   end
 
-  def fill_variable_leaves(ar)            #algorithm used fisher yates
+  def fill_variable_leaves(ar)            #algorithm - fisher yates
     cnt = 0  
     p 'started filling un-decided leaves in chromosome template'   
     until ( cnt == @v_leaves || ar.size==0) do 
@@ -91,7 +91,7 @@ class Chromosome
 
   def rev_mapping i
     return "workday" if i=='0'
-    return "holiday" if i=='1'
+    return "calendar_holiday" if i=='1'
     return "probable_holiday" if i=='2'
   end
 

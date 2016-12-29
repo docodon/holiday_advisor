@@ -43,7 +43,6 @@ class Generation
     sorted_individuals.last(4)
   end
 
-
   def average_score
     return -1 if @total_score.nil?
     @total_score/@generation.size.to_f
@@ -60,7 +59,8 @@ class Generation
   end
 
   def get_individual #gen a random num and return chromosome at first index  where roulette_cumulative_sum > randdom
-  	ind = HelperFunctions::binary_search(@roulette_wheel,rand(@total_score+1))
+  	raise "Generation not yet rated !!" if @roulette_wheel.size == 0
+    ind = HelperFunctions::binary_search(@roulette_wheel,rand(@total_score+1))
   	@generation[ind]
   end
 
