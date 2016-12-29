@@ -1,83 +1,44 @@
 # holiday_advisor
 
+I am working on this project to get some insights of genetic algorithm and  for some fun purpose
+Anyone intersted to Collaborate please ping me .
 
-1) fetch sunday/sat/govt_holidays              # module problem
-2) user-input -> ar[fixed_holidays]            # most prob in date/month  [module problem]
-3) user-input -> unpaid_leaves paid_leaves     # variables                 
-4) gen_random_chromosomes , using above info   # class Chromosome
-5) gen_generation_of_chromsomes                # class population 
-6) fitness functions                           # module GA
-7) crossover functions                         # module GA
-8) mutation functions                          # module GA
-9) convert_chromosome_to_solution              # class chromosome
+Overview of project :
+  Using genetic algorithms to help someone plan his upcoming holidays in a year . 
+  Algorithm will be advising person to take leaves according to his preferences . 
 
-********************************************************************************************************
+Genetic algorithms work on theory of evolution .
+  Few links may be helpful to understand - 
+  http://www.ai-junkie.com/ga/intro/gat1.html
+  https://en.wikipedia.org/wiki/Genetic_algorithm - wikipedia is always to rescue
 
-module Calendar
-end
 
-class chromosome
-    
-    def initialize  
-      Problem.init_holidays
-      get decided_holidays num_[unpaid,paid]_leaves
-      fitness_score
-    end
+You can go through the code to get the grasp of it , I have tried to make it really simple and readable.
 
-    def gen_chromosome        #string of length 365, 0-working_day , 1-fix_holiday_sun_sat , 2-paid_or_unpaid_leaves[variable], 3-decided_leaves
-    end
 
-    def solution
-    end
-
-end
-
-class population
+Code briefing : 
   
-  def initialize
-  end
+ 1. module Calendar :  Gets the list of holidays from an online resource and prepares the holiday template .
 
-  def top_solutions
-  end
+ 2. class Chromosome : It represents a Chromosome and has the functions related to a chromosome , chromosome implies a potential solution , in our case person's recommended plan for the upcoming year . 
 
-end
+    functions  : [initialize_solution , cross_over , fitness_functions , calendar_rep , fitness_score ]
 
-module GA
 
-  def create_generation(size)
-  end
+  3. class Generation : It represents an entire generation of chromosomes .
 
-  def fitness(chromsome)
-  end
+     functions : [initialize_generation , rate_generation , generate_new_generation , top_results , average_score ]
 
-  def crossover(chromosome1,chromosome2)
-  end
+  4 . main_script : Added it to demonstrate the flow of algorithm .
 
-  def mutation(chromosome)
-  end
 
-  def rate_generation(gen)  #for every chromosome assign fitness score
-  end
+Future plans : 
 
-  def create_new_generation
-  end
+1. Instead of merely a github repo I am planning to host it online using rails and angular frameworks.
 
-end
+2. Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource ['https://www.timeanddate.com/holidays/india/2017']  .
+Will allow user to alter the initial holidays and also enable him to add leaves which he has planned already .
 
-MAIN script
-  
-  gets gen_size , num_gen
+3. Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .
 
-  gen = create_generation(n)
 
-  num_gen.times do 
-    gen = create_new_generation
-  end
-
-  gen.top_solutions.each do |i|
-    i.solution
-  end
-
-END
-
-***************************************************************************************************************
