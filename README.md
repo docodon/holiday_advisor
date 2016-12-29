@@ -11,7 +11,6 @@
 8) mutation functions                          # module GA
 9) convert_chromosome_to_solution              # class chromosome
 
-
 ********************************************************************************************************
 
 module Calendar

@@ -6,7 +6,7 @@ class Chromosome
   @@mutation_rate = 0.01
 
   def initialize(leaves)
-    @string = Calendar::CHROMSOME_TEMPLATE  # 0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
+    @string = Calendar::CHROMSOME_TEMPLATE.clone() #0 - working_day , sun/sat/gazzeted - 1 , 2 - leaves
     @v_leaves = leaves
     @fitness_score = nil
     fill_variable_leaves( working_days )
@@ -69,7 +69,8 @@ class Chromosome
   end
 
   def fill_variable_leaves ar
-    cnt = 0   
+    cnt = 0
+    p 'started filling un-decided leaves in chromosome template'   
     until cnt == @v_leaves do 
        ind = rand(ar.size)
        if ar[ind][1] == 0
@@ -77,7 +78,9 @@ class Chromosome
           cnt+=1 
        end
     end
+    p 'Chromosome ready !'
   end
 
 end
+
 
