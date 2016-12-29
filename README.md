@@ -3,20 +3,24 @@
 I am working on this project to get some insights of genetic algorithm and  for some fun purpose
 Anyone intersted to Collaborate please ping me .
 
-Overview of project :
+#### Overview of project :
   Using genetic algorithms to help someone plan his upcoming holidays in a year . 
   Algorithm will be advising person to take leaves according to his preferences . 
 
 Genetic algorithms work on theory of evolution .
-  Few links may be helpful to understand - 
-  http://www.ai-junkie.com/ga/intro/gat1.html
-  https://en.wikipedia.org/wiki/Genetic_algorithm - wikipedia is always to rescue
 
+```
+  Few links may be helpful to understand - 
+
+  ** http://www.ai-junkie.com/ga/intro/gat1.html **
+
+  ** https://en.wikipedia.org/wiki/Genetic_algorithm - wikipedia is always to rescue **
+```
 
 You can go through the code to get the grasp of it , I have tried to make it really simple and readable.
 
 
-Code briefing : 
+#### Code briefing : 
   
  1. module Calendar :  Gets the list of holidays from an online resource and prepares the holiday template .
 
@@ -32,7 +36,7 @@ Code briefing :
   4 . main_script : Added it to demonstrate the flow of algorithm .
 
 
-Future plans : 
+####Future plans :
 
 1. Instead of merely a github repo I am planning to host it online using rails and angular frameworks.
 
