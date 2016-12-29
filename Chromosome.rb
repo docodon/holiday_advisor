@@ -63,24 +63,22 @@ class Chromosome
   def working_days
     ar = []
     @string.split('').each_with_index do |i,j|    
-      ar << [ j,0 ] if i=='0' 
+      ar << j if i=='0' 
     end
     ar
   end
 
-  def fill_variable_leaves ar
-    cnt = 0
+  def fill_variable_leaves(ar)            #algorithm used fisher yates
+    cnt = 0  
     p 'started filling un-decided leaves in chromosome template'   
-    until cnt == @v_leaves do 
-       ind = rand(ar.size)
-       if ar[ind][1] == 0
-          @string[ar[ind][0]] , ar[ind][1] = '2' , 1
-          cnt+=1 
-       end
+    until ( cnt == @v_leaves || ar.size==0) do 
+      ind = rand(ar.size)
+      ar[ind] , ar[-1] = ar[-1] , ar[ind]
+      @string[ar[-1]] = '2'
+      ar.pop           
+      cnt+=1 
     end
     p 'Chromosome ready !'
   end
 
 end
-
-

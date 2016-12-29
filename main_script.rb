@@ -10,7 +10,3 @@ NUM_GEN.times do |i|
 	g.rate_generation
 	g.new_generation
 end
-
-
-
-
