@@ -9,7 +9,7 @@ Anyone intersted to Collaborate please ping me .
 
 Genetic algorithms work on theory of evolution .
 
-  ##### Few links may be helpful to understand - 
+#####  Few links may be helpful to understand - 
 
   http://www.ai-junkie.com/ga/intro/gat1.html
 
