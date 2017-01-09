@@ -37,10 +37,10 @@ You can go through the code to get the grasp of it , I have tried to make it rea
 
 ####Future plans :
 
-1. Instead of merely a github repo I am planning to host it online using rails and angular frameworks.
-
-2. Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource [https://www.timeanddate.com/holidays/india/2017]  .
-Will allow user to alter the initial holidays and also enable him to add leaves which he has planned already .
+1. ~~Make an user-friendly interface and get it online using rails and angular frameworks.~~ [https://secure-atoll-63871.herokuapp.com]
+          
+2. ~~Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource [https://www.timeanddate.com/holidays/india/2017]  .
+Will allow user to alter the initial holidays and also enable him to add leaves which he has planned already .~~
 
 3. Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .
 
