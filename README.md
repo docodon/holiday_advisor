@@ -27,12 +27,11 @@ You can go through the code to get the grasp of it , I have tried to make it rea
 
     functions  : [initialize_solution , cross_over , fitness_functions , calendar_rep , fitness_score ]
 
-
-  3. class Generation : It represents an entire generation of chromosomes .
+ 3. class Generation : It represents an entire generation of chromosomes .
 
      functions : [initialize_generation , rate_generation , generate_new_generation , top_results , average_score ]
 
-  4 . main_script : Added it to demonstrate the flow of algorithm .
+ 4. main_script : Added it to demonstrate the flow of algorithm .
 
 
 ####Future plans :
@@ -42,19 +41,13 @@ You can go through the code to get the grasp of it , I have tried to make it rea
 2. ~~Will be adding more flexibilty for user , currently I am taking only number of desired inputs and have assumed holidays of a person to be fixed .i.e according to online resource [https://www.timeanddate.com/holidays/india/2017]  .
 Will allow user to alter the initial holidays and also enable him to add leaves which he has planned already .~~
 
-3. Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .
+3. ~~Will be adding admin_functionality to add more fitness_functions and these will be triggered according to user preferences .~~
 
-4. Improve algorithm complexity : 
-    
-    ```
-    current = O( fetching_leaves + pop_size * (366 * 5 + log(pop_size)  ) ) 
 
-    details : 
-    
-    	generate_random_pop = O( fetching_leaves + pop_size * 366 )
+######Associated repos :
+1. [backend rails repo](https://github.com/docodon/hplanner_bakend)
+2. [frontend angular repo](https://github.com/docodon/hplanner_frontend) 
 
-    	rating_generation =  O( 366 * pop_size )
 
-    	generating_new_generation = O( log(pop_size) + 366*3 )
+_**suggestions or collaborations are highly appreciated and ping me if interested**_
 
-    ```
